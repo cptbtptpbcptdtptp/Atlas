@@ -1,5 +1,5 @@
 {
-  "name": "@zyw-atlas/atlas-browser",
+  "name": "zyw-atlas-browser",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -19,5 +19,6 @@
   },
   "peerDependencies": {
     "@zyw-atlas/atlas-algorithm": "^1.0.0"
-  }
+  },
+  "gitHead": "b3fc571882500a11acd20afcc50c8448dedf5444"
 }
