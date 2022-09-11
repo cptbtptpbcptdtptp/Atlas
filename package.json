@@ -22,8 +22,5 @@
     "ts-node": "^9.1.1",
     "typescript": "^4.4.3"
   },
-  "dependencies": {
-    "@zyw-atlas/atlas-algorithm": "^1.0.0",
-    "@zyw-atlas/atlas-browser": "^1.0.0"
-  }
+  "dependencies": {}
 }

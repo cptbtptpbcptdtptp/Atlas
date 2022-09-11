@@ -1,4 +1,4 @@
-import { MaxRectsMethod } from "@zyw-atlas/atlas-algorithm";
+import { MaxRectsMethod } from "zyw-atlas-algorithm";
 
 export interface PackingOption {
   width?: number;
