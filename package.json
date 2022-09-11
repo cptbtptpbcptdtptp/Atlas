@@ -6,7 +6,7 @@
     "start": "npm i && lerna bootstrap",
     "b:types": "lerna run b:types",
     "b:all": "npm run b:types",
-    "pub": "lerna publish from-package"
+    "pub": "lerna publish"
   },
   "author": "",
   "license": "ISC",
