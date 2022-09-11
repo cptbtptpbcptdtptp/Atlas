@@ -1,0 +1,23 @@
+{
+  "name": "@zyw-atlas/atlas-browser",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "b:types": "tsc"
+  },
+  "types": "types/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "dist/**/*",
+    "types/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@zyw-atlas/atlas-algorithm": "^1.0.0"
+  }
+}
