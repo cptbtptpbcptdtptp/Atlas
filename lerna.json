@@ -1,9 +1,11 @@
 {
   "npmClient": "npm",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "bootstrap": {
     "hoist": true
   },
-  "packages": ["packages/*"],
+  "packages": [
+    "packages/*"
+  ],
   "loglevel": "verbose"
 }
