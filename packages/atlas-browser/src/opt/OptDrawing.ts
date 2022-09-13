@@ -1,5 +1,5 @@
-import { PackingContext } from "../data/PackingContext";
-import { PackingItem } from "../data/PackingItem";
+import { PackingContext } from "../interface/PackingContext";
+import { PackingItem } from "../interface/PackingItem";
 import { ErrorCode } from "../enum/ErrorCode";
 import { OptHandler } from "./OptHandler";
 

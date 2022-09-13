@@ -1,5 +1,5 @@
-import { PackingItem } from "./data/PackingItem";
-import { PackingOutput } from "./data/PackingOutput";
+import { PackingItem } from "./interface/PackingItem";
+import { PackingOutput } from "./interface/PackingOutput";
 import { ErrorCode } from "./enum/ErrorCode";
 import { PackingOption } from "./interface/PackingOption";
 import { OptDrawing } from "./opt/OptDrawing";
@@ -77,5 +77,5 @@ function getErrorMessage(code: ErrorCode) {
 }
 
 export { PackingOption } from "./interface/PackingOption";
-export { PackingOutput } from "./data/PackingOutput";
-export { PackingItem } from "./data/PackingItem";
+export { PackingOutput } from "./interface/PackingOutput";
+export { PackingItem } from "./interface/PackingItem";

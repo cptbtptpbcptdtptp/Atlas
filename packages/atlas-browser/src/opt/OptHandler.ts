@@ -1,4 +1,4 @@
-import { PackingContext } from "../data/PackingContext";
+import { PackingContext } from "../interface/PackingContext";
 import { ErrorCode } from "../enum/ErrorCode";
 
 export abstract class OptHandler {

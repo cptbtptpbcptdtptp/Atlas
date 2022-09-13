@@ -1,4 +1,4 @@
-import { PackingContext } from "../data/PackingContext";
+import { PackingContext } from "../interface/PackingContext";
 import { ErrorCode } from "../enum/ErrorCode";
 import { OptHandler } from "./OptHandler";
 
