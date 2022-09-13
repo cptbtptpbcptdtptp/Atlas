@@ -1,6 +1,6 @@
 import { OptHandler } from "./OptHandler";
 import { ErrorCode } from "../enum/ErrorCode";
-import { Rect, MaxRectsBinPack } from "zyw-atlas-algorithm";
+import { Rect, MaxRectsBinPack } from "@oasis-engine/tool-atlas-algorithm";
 import { PackingContext } from "../interface/PackingContext";
 
 const POTS = [2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2];

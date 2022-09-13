@@ -1,4 +1,4 @@
-import { MaxRectsMethod } from "zyw-atlas-algorithm";
+import { MaxRectsMethod } from "@oasis-engine/tool-atlas-algorithm";
 
 export interface PackingOption {
   width?: number;

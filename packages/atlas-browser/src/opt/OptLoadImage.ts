@@ -1,6 +1,7 @@
 import { PackingContext } from "../interface/PackingContext";
 import { ErrorCode } from "../enum/ErrorCode";
 import { OptHandler } from "./OptHandler";
+import { PackingItem } from "../interface/PackingItem";
 
 export class OptLoadImage extends OptHandler {
   parse(context: PackingContext): Promise<ErrorCode> {
@@ -16,40 +17,31 @@ export class OptLoadImage extends OptHandler {
       for (let i = 0; i < imagesLength; i++) {
         const image = images[i];
         let promise: Promise<HTMLImageElement>;
-        const imageSrc = image.src;
-        if (imageSrc instanceof ArrayBuffer) {
-          promise = this._loadImageFromArrayBuffer(imageSrc, image.type);
-        } else {
-          if (imageSrc.substring(0, 5) === "data:") {
-            promise = this._loadImageFromBase64(imageSrc);
+        const imgSrc = image.src;
+        if (!image.image) {
+          if (imgSrc instanceof ArrayBuffer) {
+            promise = this._loadImageFromBuffer(image);
           } else {
-            promise = this._loadImageFromURL(imageSrc);
+            promise = this._loadImageFromURL(image);
           }
+          promiseArray.push(promise);
         }
-        promiseArray.push(promise);
       }
       Promise.all(promiseArray)
-        .then((imageElement: HTMLImageElement[]) => {
-          for (let i = 0; i < imagesLength; i++) {
-            images[i].image = imageElement[i];
-          }
+        .then(() => {
           resolve(ErrorCode.Success);
-          return;
         })
         .catch((error: Error) => {
           console.error("OptLoadImage:Error", JSON.stringify(error));
           reject(ErrorCode.ImageLoadError);
-          return;
         });
     });
   }
 
-  private _loadImageFromArrayBuffer(
-    buffer: ArrayBuffer,
-    type: string
-  ): Promise<HTMLImageElement> {
+  private _loadImageFromBuffer(item: PackingItem): Promise<HTMLImageElement> {
     return new Promise((resolve, reject) => {
-      const blob = new window.Blob([buffer], { type });
+      const buffer = item.src as ArrayBuffer;
+      const blob = new window.Blob([buffer], { type: item.type });
       const img = new Image();
       img.onerror = function () {
         reject(new Error("Failed to load image buffer"));
@@ -57,18 +49,19 @@ export class OptLoadImage extends OptHandler {
       img.onload = function () {
         // Call requestAnimationFrame to avoid iOS's bug.
         requestAnimationFrame(() => {
-          resolve(img);
           img.onload = null;
           img.onerror = null;
           img.onabort = null;
+          item.image = img;
+          resolve(img);
         });
       };
+      img.crossOrigin = "anonymous";
       img.src = URL.createObjectURL(blob);
-      img.crossOrigin = "anonymous";
     });
   }
 
-  private _loadImageFromBase64(base64: string): Promise<HTMLImageElement> {
+  private _loadImageFromURL(item: PackingItem): Promise<HTMLImageElement> {
     return new Promise((resolve, reject) => {
       const img = new Image();
       img.onerror = function () {
@@ -77,35 +70,15 @@ export class OptLoadImage extends OptHandler {
       img.onload = function () {
         // Call requestAnimationFrame to avoid iOS's bug.
         requestAnimationFrame(() => {
-          resolve(img);
           img.onload = null;
           img.onerror = null;
           img.onabort = null;
-        });
-      };
-      img.crossOrigin = "anonymous";
-      img.src = base64;
-    });
-  }
-
-  private _loadImageFromURL(url: string): Promise<HTMLImageElement> {
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.onerror = function () {
-        console.error("加载资源失败");
-        reject(new Error("Failed to load image buffer"));
-      };
-      img.onload = function () {
-        // Call requestAnimationFrame to avoid iOS's bug.
-        requestAnimationFrame(() => {
+          item.image = img;
           resolve(img);
-          img.onload = null;
-          img.onerror = null;
-          img.onabort = null;
         });
       };
-      img.src = url;
       img.crossOrigin = "anonymous";
+      img.src = item.src as string;
     });
   }
 }

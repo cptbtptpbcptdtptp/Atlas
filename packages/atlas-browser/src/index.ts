@@ -5,7 +5,7 @@ import { PackingOption } from "./interface/PackingOption";
 import { OptDrawing } from "./opt/OptDrawing";
 import { OptLoadImage } from "./opt/OptLoadImage";
 import { OptPacking } from "./opt/OptPacking";
-import { MaxRectsMethod } from "zyw-atlas-algorithm";
+import { MaxRectsMethod } from "@oasis-engine/tool-atlas-algorithm";
 
 const packingPipe = [new OptLoadImage(), new OptPacking(), new OptDrawing()];
 const DefaultOption = {

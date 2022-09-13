@@ -1,4 +1,4 @@
-import { Rect } from "zyw-atlas-algorithm";
+import { Rect } from "@oasis-engine/tool-atlas-algorithm";
 import { PackingOption } from "../interface/PackingOption";
 import { PackingItem } from "./PackingItem";
 import { PackingOutput } from "./PackingOutput";
