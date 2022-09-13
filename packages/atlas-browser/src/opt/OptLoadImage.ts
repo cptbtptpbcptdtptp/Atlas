@@ -37,7 +37,8 @@ export class OptLoadImage extends OptHandler {
           return;
         })
         .catch((error: Error) => {
-          reject(error);
+          console.error("OptLoadImage:Error", JSON.stringify(error));
+          reject(ErrorCode.ImageLoadError);
           return;
         });
     });

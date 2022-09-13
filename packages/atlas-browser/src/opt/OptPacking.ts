@@ -104,7 +104,11 @@ export class OptPacking extends OptHandler {
 
       context.exportWidth = exportWidth;
       context.exportHeight = exportHeight;
+      return ErrorCode.Success;
+    } else {
+      // 打包失败
+      console.log("打包失败,Info", JSON.stringify(option));
+      return ErrorCode.PackError;
     }
-    return ErrorCode.Success;
   }
 }

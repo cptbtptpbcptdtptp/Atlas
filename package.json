@@ -4,8 +4,7 @@
   "description": "",
   "scripts": {
     "start": "npm i && lerna bootstrap",
-    "b:types": "lerna run b:types",
-    "b:all": "npm run b:types",
+    "b:all": "lerna run build",
     "pub": "lerna publish"
   },
   "author": "",

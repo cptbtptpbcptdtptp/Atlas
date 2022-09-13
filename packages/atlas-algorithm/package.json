@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "",
   "scripts": {
-    "b:types": "tsc"
+    "build": "tsc"
   },
   "publishConfig": {
     "access": "public"

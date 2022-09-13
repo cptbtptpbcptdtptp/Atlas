@@ -41,6 +41,8 @@ export async function pack(
   }
   // 开始打包
   const outPut: PackingOutput = {
+    code: ErrorCode.Success,
+    msg: "打包成功！",
     info: {},
   };
   const context = { option, images, outPut };
@@ -67,6 +69,8 @@ function getErrorMessage(code: ErrorCode) {
       return "画布 blob 转换失败.";
     case ErrorCode.OffscreenBlobError:
       return "离线画布 blob 转换失败.";
+    case ErrorCode.PackError:
+      return "打包失败.";
     default:
       break;
   }
