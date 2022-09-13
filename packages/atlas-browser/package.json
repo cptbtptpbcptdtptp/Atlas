@@ -1,6 +1,6 @@
 {
   "name": "@oasis-engine/tool-atlas-browser",
-  "version": "0.8.0-beta.5",
+  "version": "0.8.0-beta.6",
   "description": "browser",
   "scripts": {
     "build": "tsc"
@@ -18,7 +18,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@oasis-engine/tool-atlas-algorithm": "beta"
+    "@oasis-engine/tool-atlas-algorithm": "^0.8.0-beta"
   },
   "gitHead": "b3fc571882500a11acd20afcc50c8448dedf5444"
 }
