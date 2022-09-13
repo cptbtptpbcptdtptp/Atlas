@@ -5,7 +5,6 @@
   "scripts": {
     "start": "npm i && lerna bootstrap",
     "b:all": "lerna run build",
-    "pub:beta": "lerna publish  --tag beta",
     "pub": "lerna publish"
   },
   "author": "",
