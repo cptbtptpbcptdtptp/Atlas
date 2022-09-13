@@ -1,7 +1,7 @@
 {
   "name": "@oasis-engine/tool-atlas-browser",
-  "version": "0.8.0-beta.1",
-  "description": "",
+  "version": "0.8.0-beta.2",
+  "description": "browser",
   "scripts": {
     "build": "tsc"
   },
