@@ -1,6 +1,6 @@
 {
   "name": "@oasis-engine/tool-atlas-algorithm",
-  "version": "0.8.0-beta.8",
+  "version": "0.8.0-beta.9",
   "description": "图集打包工具的算法",
   "scripts": {
     "build": "tsc"
