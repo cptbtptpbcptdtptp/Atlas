@@ -18,7 +18,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@oasis-engine/tool-atlas-algorithm": "^0.8.0-beta"
+    "@oasis-engine/tool-atlas-algorithm": "beta"
   },
   "gitHead": "b3fc571882500a11acd20afcc50c8448dedf5444"
 }

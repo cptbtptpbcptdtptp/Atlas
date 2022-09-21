@@ -41,7 +41,8 @@ export class OptPacking extends OptHandler {
     this.pack.init(width, height, option.allowRotate);
 
     const rects: Rect[] = [];
-    for (let i = images.length - 1; i >= 0; i--) {
+    const packCount = images.length;
+    for (let i = packCount - 1; i >= 0; i--) {
       const file = images[i];
       const image = file.image;
       rects.push(
@@ -59,7 +60,7 @@ export class OptPacking extends OptHandler {
       this.pack.insert2(rects, method)
     ));
     const len = resArray.length;
-    if (len > 0) {
+    if (len === packCount) {
       let exportWidth = 0;
       let exportHeight = 0;
       let doublePadding = padding * 2;
@@ -107,7 +108,7 @@ export class OptPacking extends OptHandler {
       return ErrorCode.Success;
     } else {
       // 打包失败
-      console.log("打包失败,Info", JSON.stringify(option));
+      console.log("打包失败，尺寸有误", JSON.stringify(option));
       return ErrorCode.PackError;
     }
   }

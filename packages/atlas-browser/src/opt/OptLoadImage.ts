@@ -9,7 +9,7 @@ export class OptLoadImage extends OptHandler {
       const { images } = context;
       // 第一步：加载所有的图片
       const imagesLength = images.length;
-      if (imagesLength < 0) {
+      if (imagesLength <= 0) {
         reject(ErrorCode.NoImage);
         return;
       }
