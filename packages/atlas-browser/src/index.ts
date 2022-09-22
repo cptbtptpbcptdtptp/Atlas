@@ -32,7 +32,7 @@ export async function pack(
     option = DefaultOption;
   } else {
     const keys = Object.keys(DefaultOption);
-    for (let i = keys.length; i >= 0; i--) {
+    for (let i = keys.length - 1; i >= 0; i--) {
       const key = keys[i];
       if (option[key] === undefined) {
         option[key] = DefaultOption[key];
@@ -70,7 +70,7 @@ function getErrorMessage(code: ErrorCode) {
     case ErrorCode.OffscreenBlobError:
       return "离线画布 blob 转换失败.";
     case ErrorCode.PackError:
-      return "打包失败.";
+      return "图集尺寸限制，打包失败。";
     default:
       break;
   }

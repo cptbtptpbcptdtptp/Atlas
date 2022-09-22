@@ -56,9 +56,11 @@ export class OptPacking extends OptHandler {
       );
     }
 
+    context.outPut.packItem = rects;
     const resArray = (context.rects = <Array<Rect>>(
       this.pack.insert2(rects, method)
     ));
+    context.outPut.packedItem = resArray;
     const len = resArray.length;
     if (len === packCount) {
       let exportWidth = 0;
