@@ -56,7 +56,6 @@ export class OptPacking extends OptHandler {
       );
     }
 
-    context.outPut.packItem = rects;
     const resArray = (context.rects = <Array<Rect>>(
       this.pack.insert2(rects, method)
     ));
@@ -104,9 +103,8 @@ export class OptPacking extends OptHandler {
           }
         }
       }
-
-      context.exportWidth = exportWidth;
-      context.exportHeight = exportHeight;
+      context.exportWidth = context.outPut.width = exportWidth;
+      context.exportHeight = context.outPut.height = exportHeight;
       return ErrorCode.Success;
     } else {
       // 打包失败

@@ -159,6 +159,8 @@ export class OptDrawing extends OptHandler {
       ) {
         this.canvas.width = exportWidth;
         this.canvas.height = exportHeight;
+      } else {
+        this.context2D.clearRect(0, 0, exportWidth, exportHeight);
       }
     }
   }
